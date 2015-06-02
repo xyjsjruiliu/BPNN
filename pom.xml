@@ -116,7 +116,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.xy.lr.scala.spark.SparkTest</mainClass>
+                            <mainClass>com.xy.lr.ml.main.BPNNMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -126,7 +126,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.xy.lr.scala.spark.SparkTest</mainClass>
+                            <mainClass>com.xy.lr.ml.main.BPNNMain</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
