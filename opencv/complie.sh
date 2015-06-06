@@ -1,1 +1,2 @@
-g++ RGB.cpp `pkg-config --cflags opencv `  `pkg-config --libs opencv` -o MyRGB
+#编译opencv程序
+g++ rgb.cpp `pkg-config --cflags opencv `  `pkg-config --libs opencv` -o myRGB

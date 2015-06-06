@@ -1,0 +1,3 @@
+在linux下安装opencv的教程在下面的链接中：
+
+http://www.cnblogs.com/emouse/archive/2013/02/22/2922940.html

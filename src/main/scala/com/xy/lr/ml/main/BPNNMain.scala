@@ -5,7 +5,7 @@ import org.apache.spark.{SparkContext, SparkConf}
 
 /**
  * Created by xylr on 15-6-2.
- * BP 神经网络
+ * BP 神经网络 Spark主程序
  */
 object BPNNMain {
   def main(args : Array[String]): Unit ={
@@ -18,6 +18,6 @@ object BPNNMain {
     val sparkConf = new SparkConf().setAppName(args(0))
     val sparkContext = new SparkContext(sparkConf)
 
-    val bpnn = new BPNeuralNetwork(sparkContext)
+//    val bpnn = new BPNeuralNetwork(sparkContext)
   }
 }
