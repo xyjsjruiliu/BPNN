@@ -27,6 +27,9 @@ public class AnnClassifier {
     //训练数据集
     private List<DataNode> trainNodes;
 
+    //学习速率
+    private Double a;
+
     //设置训练数据集
     public void setTrainNodes(List<DataNode> trainNodes) {
         this.trainNodes = trainNodes;
