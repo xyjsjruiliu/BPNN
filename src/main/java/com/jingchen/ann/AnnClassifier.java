@@ -28,11 +28,24 @@ public class AnnClassifier {
     private List<DataNode> trainNodes;
 
     //学习速率
-    private Double a;
+    private Double learningRate;
+
+    //惯性因子
+    private Double inertiafactor;
 
     //设置训练数据集
     public void setTrainNodes(List<DataNode> trainNodes) {
         this.trainNodes = trainNodes;
+    }
+
+    //设置学习速率
+    public void setLearningRate(Double lR){
+        this.learningRate = lR;
+    }
+
+    //设置惯性因子
+    public void setInertiafactor(Double iF){
+        this.inertiafactor = iF;
     }
 
     /**

@@ -1,6 +1,6 @@
-com/jingchen/ann/AnnClassifier.class
-com/jingchen/ann/DataNode.class
 com/jingchen/util/ConsoleHelper.class
+com/jingchen/ann/AnnClassifier.class
 com/jingchen/ann/MainClass.class
+com/jingchen/ann/DataNode.class
 com/jingchen/util/DataUtil.class
 com/jingchen/ann/NetworkNode.class

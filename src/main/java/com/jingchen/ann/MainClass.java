@@ -14,10 +14,11 @@ import java.util.List;
  */
 public class MainClass {
     public static void main(String[] args) throws Exception {
-        if (args.length < 5) {
+        if (args.length < 8) {
             System.err.println("Usage: \n\t-train trainfile\n\t-test predictfile\n\t" +
-                    "-sep separator, default:','\n\t-eta eta, default:0.5\n\t-iter iternum, default:5000" +
-                    "\n\t-out outputfile");
+                    "-sep separator, default:','\n\t-eta eta, default:0.5\n\t-iter iternum, default:5000\n\t" +
+                    "-learningRate learningRate\n\t" +
+                    "-inertiafactor inertiafactor\n\t-out outputfile");
             System.exit(0);
         }
         //命令行参数
@@ -30,6 +31,10 @@ public class MainClass {
         String separator = helper.getArg("-sep", ",");
         //输出文件路径
         String outputfile = helper.getArg("-out", "");
+        //学习速率
+        Double learningRate = Double.valueOf(helper.getArg("-learningRate", "0.9"));
+        //惯性因子
+        Double inertiafactor = Double.valueOf(helper.getArg("-inertiafactor", "1.2"));
         //误差值
         float eta = helper.getArg("-eta", 0.5f);
         //迭代次数
@@ -46,12 +51,17 @@ public class MainClass {
                 outputfile)));
         //分类个数（类型个数）
         int typeCount = util.getTypeCount();
+        System.out.println(typeCount);
 
         //神经网络
         AnnClassifier annClassifier = new AnnClassifier(trainList.get(0)
                 .getAttribList().size(), 10, typeCount);
         //初始化
         annClassifier.setTrainNodes(trainList);
+        //设置学习速率
+        annClassifier.setLearningRate(learningRate);
+        //设置惯性因子
+        annClassifier.setInertiafactor(inertiafactor);
         //训练神经网络
         annClassifier.train(eta, nIter);
 
