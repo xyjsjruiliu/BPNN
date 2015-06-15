@@ -2,15 +2,22 @@ package com.xy.lr.ml.bpnn
 
 import java.lang.Math._
 
+import com.xy.lr.ml.util.NeureType
+
 /**
  * Created by xylr on 15-6-3.
  * 神经元
  */
-class Neure {
+class Neuron {
   /**
    * 神经元类型（0表示输入层，1表示隐含层，2表示输出层）
    * */
   private var genre : Int = _
+
+  /**
+   * Threshold Yuzhi
+   * */
+  private var threshold : Double = _
 
   /**
    * 设置神经元类型
@@ -19,24 +26,29 @@ class Neure {
     this.genre = genre
   }
 
+  def getGenre : Int = {
+    genre
+  }
+
   /**
    * 神经元 前向 输入输出值
    * */
-  private var neureForwardInputValue : Double = _
-  private var neureForwardOutputValue : Double = _
+  private var neuronForwardInputValue : Double = _
+  private var neuronForwardOutputValue : Double = _
 
   /**
    * 神经元 反向 输入输出值
    * */
-  private var neureBackwardInputValue : Double = _
-  private var neureBackwardOutputValue : Double = _
+  private var neuronBackwardInputValue : Double = _
+  private var neuronBackwardOutputValue : Double = _
 
   /**
-   * 构造函数（设置神经元类型）
+   * 构造函数（设置神经元类型,yuzhi）
    * */
   def this(genre : Int){
     this()
     this.genre = genre
+//    this.threshold = threshold
   }
 
   /**
@@ -45,7 +57,7 @@ class Neure {
   def logS(x : Double) : Double = 1 / (1 + exp(-x))
 
   /**
-  * log -sigmoid函数的导数
+  * log-sigmoid函数的导数
   */
   def logSDerivative(x : Double) : Double = logS(x) * abs(1 - logS(x))
 
@@ -64,9 +76,9 @@ class Neure {
    * */
   def forwardSigmoid(in : Double) : Double = {
     genre match {
-      case Neure.TYPE_INPUT => in
-      case Neure.TYPE_HIDDEN => tanhS(in)
-      case Neure.TYPE_OUTPUT => tanhS(in)
+      case NeureType.TYPE_INPUT => in
+      case NeureType.TYPE_HIDDEN => logS(in)
+      case NeureType.TYPE_OUTPUT => logS(in)
     }
   }
 
@@ -74,33 +86,33 @@ class Neure {
    * 设置 前向 输入数据
    * */
   def setForwardInputValue(in : Double): Unit ={
-    this.neureForwardInputValue = in
+    this.neuronForwardInputValue = in
     setForwardOutputValue(in)
   }
 
   /**
    * 设置 前向 输出数据
    * */
-  def setForwardOutputValue(in : Double): Unit = this.neureForwardOutputValue = forwardSigmoid(in)
+  def setForwardOutputValue(in : Double): Unit = this.neuronForwardOutputValue = forwardSigmoid(in)
 
   /**
    * 获取 前向 输出数据
    * */
-  def getForwardOutputValue : Double = this.neureForwardOutputValue
+  def getForwardOutputValue : Double = this.neuronForwardOutputValue
 
   /**
    * 获取 前向 输入数据
    * */
-  def getForwardInputValue : Double = this.neureForwardInputValue
+  def getForwardInputValue : Double = this.neuronForwardInputValue
 
   /**
    * 误差反向传播时，激活函数的导数
    * */
   def backwardPropagate(in : Double) : Double = {
     genre match {
-      case Neure.TYPE_INPUT => in
-      case Neure.TYPE_HIDDEN => tanhSDerivative(in)
-      case Neure.TYPE_OUTPUT => tanhSDerivative(in)
+      case NeureType.TYPE_INPUT => in
+      case NeureType.TYPE_HIDDEN => in * logSDerivative(this.getForwardInputValue)
+      case NeureType.TYPE_OUTPUT => (in - this.getForwardOutputValue) * logSDerivative(this.getForwardInputValue)
     }
   }
 
@@ -108,32 +120,24 @@ class Neure {
    * 设置 反向 输入数据
    * */
   def setBackwardInputValue(in : Double): Unit ={
-    this.neureBackwardInputValue = in
-    setBackwardOutputValue(in)
+    this.neuronBackwardInputValue = in
+//    setBackwardOutputValue(in)
   }
 
   /**
    * 设置 反向 输出数据
    * */
   def setBackwardOutputValue(in : Double): Unit ={
-    this.neureBackwardOutputValue = backwardPropagate(in)
+    this.neuronBackwardOutputValue = backwardPropagate(in)
   }
 
   /**
    * 获取 反向 输入数据
    * */
-  def getBackwardInputValue : Double = this.neureForwardInputValue
+  def getBackwardInputValue : Double = this.neuronBackwardInputValue
 
   /**
    * 获取 反向 输出数据
    * */
-  def getBackwardOutputValue : Double = this.neureBackwardOutputValue
-}
-object Neure{
-  //输入层节点标志
-  def TYPE_INPUT : Int = 0
-  //隐含层节点标志
-  def TYPE_HIDDEN : Int = 1
-  //输出层节点标志
-  def TYPE_OUTPUT : Int = 2
+  def getBackwardOutputValue : Double = this.neuronBackwardOutputValue
 }

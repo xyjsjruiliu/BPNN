@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class MainClass {
     public static void main(String[] args) throws Exception {
-        if (args.length < 8) {
+        /*if (args.length < 8) {
             System.err.println("Usage: \n\t-train trainfile\n\t-test predictfile\n\t" +
                     "-sep separator, default:','\n\t-eta eta, default:0.5\n\t-iter iternum, default:5000\n\t" +
                     "-learningRate learningRate\n\t" +
@@ -38,17 +38,17 @@ public class MainClass {
         //误差值
         float eta = helper.getArg("-eta", 0.5f);
         //迭代次数
-        int nIter = helper.getArg("-iter", 5000);
+        int nIter = helper.getArg("-iter", 5000);*/
 
         //数据集
         DataUtil util = DataUtil.getInstance();
         //训练数据集
-        List<DataNode> trainList = util.getDataList(trainfile, separator);
+        List<DataNode> trainList = util.getDataList("data/ann/train.txt", ",");
         //测试数据集
-        List<DataNode> testList = util.getDataList(testfile, separator);
+        List<DataNode> testList = util.getDataList("data/ann/test.txt", ",");
 
         BufferedWriter output = new BufferedWriter(new FileWriter(new File(
-                outputfile)));
+                "ouuu")));
         //分类个数（类型个数）
         int typeCount = util.getTypeCount();
         System.out.println(typeCount);
@@ -59,23 +59,25 @@ public class MainClass {
         //初始化
         annClassifier.setTrainNodes(trainList);
         //设置学习速率
-        annClassifier.setLearningRate(learningRate);
+        annClassifier.setLearningRate(1.0);
         //设置惯性因子
-        annClassifier.setInertiafactor(inertiafactor);
+        annClassifier.setInertiafactor(1.0);
         //训练神经网络
-        annClassifier.train(eta, nIter);
+        annClassifier.train(0.5f, 1000);
 
         for (int i = 0; i < testList.size(); i++) {
             DataNode test = testList.get(i);
             int type = annClassifier.test(test);
-            List<Float> attribs = test.getAttribList();
-            for (int n = 0; n < attribs.size(); n++) {
-                output.write(attribs.get(n) + ",");
-                output.flush();
-            }
-            output.write(util.getTypeName(type) + "\n");
-            output.flush();
+
+            System.out.println(type + "\t" + test.getType());
+//            List<Float> attribs = test.getAttribList();
+//            for (int n = 0; n < attribs.size(); n++) {
+//                output.write(attribs.get(n) + ",");
+//                output.flush();
+//            }
+//            output.write(util.getTypeName(type) + "\n");
+//            output.flush();
         }
-        output.close();
+//        output.close();
     }
 }

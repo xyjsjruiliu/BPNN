@@ -17,10 +17,8 @@ class TrainDataSet {
   private var genre : Int = 0
 
   /***/
-  def this(){
-    this()
-    this.mAttribList = new ArrayBuffer[Double]()
-  }
+  mAttribList = new ArrayBuffer[Double]()
+
 
   /**
    * 设置类型

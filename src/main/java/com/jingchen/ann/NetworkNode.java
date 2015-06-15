@@ -35,7 +35,6 @@ public class NetworkNode {
 
     /**
      * sigmoid函数，这里用tan-sigmoid，经测试其效果比log-sigmoid好！
-     *
      * @param in
      * @return
      */
