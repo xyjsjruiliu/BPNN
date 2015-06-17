@@ -126,7 +126,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.jingchen.ann.MainClass</mainClass>
+                            <mainClass>com.xy.lr.ann.MainClass</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

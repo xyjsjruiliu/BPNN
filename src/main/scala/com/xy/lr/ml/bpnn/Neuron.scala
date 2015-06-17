@@ -2,20 +2,20 @@ package com.xy.lr.ml.bpnn
 
 import java.lang.Math._
 
-import com.xy.lr.ml.util.NeureType
+import com.xy.lr.ml.util.NeuronType
 
 /**
  * Created by xylr on 15-6-3.
  * 神经元
  */
-class Neuron {
+class Neuron extends java.io.Serializable{
   /**
    * 神经元类型（0表示输入层，1表示隐含层，2表示输出层）
    * */
   private var genre : Int = _
 
   /**
-   * Threshold Yuzhi
+   * Threshold 阈值
    * */
   private var threshold : Double = _
 
@@ -26,8 +26,23 @@ class Neuron {
     this.genre = genre
   }
 
+  /***/
   def getGenre : Int = {
     genre
+  }
+
+  /**
+   * 设置阈值
+   * */
+  def setThreshold(threshold : Double): Unit ={
+    this.threshold = threshold
+  }
+
+  /**
+   * 获取阈值
+   * */
+  def getThreshold : Double = {
+    this.threshold
   }
 
   /**
@@ -43,7 +58,7 @@ class Neuron {
   private var neuronBackwardOutputValue : Double = _
 
   /**
-   * 构造函数（设置神经元类型,yuzhi）
+   * 构造函数（设置神经元类型）
    * */
   def this(genre : Int){
     this()
@@ -76,9 +91,9 @@ class Neuron {
    * */
   def forwardSigmoid(in : Double) : Double = {
     genre match {
-      case NeureType.TYPE_INPUT => in
-      case NeureType.TYPE_HIDDEN => logS(in)
-      case NeureType.TYPE_OUTPUT => logS(in)
+      case NeuronType.TYPE_INPUT => in
+      case NeuronType.TYPE_HIDDEN => logS(in)
+      case NeuronType.TYPE_OUTPUT => logS(in)
     }
   }
 
@@ -110,9 +125,9 @@ class Neuron {
    * */
   def backwardPropagate(in : Double) : Double = {
     genre match {
-      case NeureType.TYPE_INPUT => in
-      case NeureType.TYPE_HIDDEN => in * logSDerivative(this.getForwardInputValue)
-      case NeureType.TYPE_OUTPUT => (in - this.getForwardOutputValue) * logSDerivative(this.getForwardInputValue)
+      case NeuronType.TYPE_INPUT => in
+      case NeuronType.TYPE_HIDDEN => in * logSDerivative(this.getForwardInputValue)
+      case NeuronType.TYPE_OUTPUT => (in - this.getForwardOutputValue) * logSDerivative(this.getForwardInputValue)
     }
   }
 
@@ -121,7 +136,6 @@ class Neuron {
    * */
   def setBackwardInputValue(in : Double): Unit ={
     this.neuronBackwardInputValue = in
-//    setBackwardOutputValue(in)
   }
 
   /**

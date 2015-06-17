@@ -8,6 +8,45 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-core_2.10/1.2.1/spark-core_2.10-1.2.1-sources.jar!/" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/bagel/src/main/scala" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/core/src/main/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/core/src/main/scala" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/core/src/test/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/dev/audit-release/maven_app_core/src/main/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/dist/examples/src/main/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/examples/scala-2.10/src/main/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/examples/src/main/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/external/flume-sink/target/scala-2.10/src_managed/main/compiled_avro" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/external/flume/src/main/scala" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/external/flume/src/test/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/external/kafka/src/main/scala" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/external/kafka/src/test/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/external/mqtt/src/main/scala" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/external/mqtt/src/test/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/external/twitter/src/main/scala" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/external/twitter/src/test/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/external/zeromq/src/main/scala" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/external/zeromq/src/test/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/extras/java8-tests/src/test/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/extras/kinesis-asl/src/main/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/extras/kinesis-asl/src/test/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/graphx/src/main/scala" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/mllib/src/main/scala" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/mllib/src/main/scala/org/apache/spark/ml" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/mllib/src/test/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/network/common/src/main/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/network/common/src/test/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/network/shuffle/src/main/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/network/shuffle/src/test/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/network/yarn/src/main/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/sql/catalyst/src/main/scala" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/sql/core/src/main/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/sql/core/src/test/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/sql/hive/src/main/scala" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/sql/hive/src/test/java" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/streaming/src/main/scala" />
+      <root url="file://$USER_HOME$/software/spark-1.2.1/streaming/src/test/java" />
     </SOURCES>
   </library>
 </component>

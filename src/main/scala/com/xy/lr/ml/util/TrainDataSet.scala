@@ -6,7 +6,7 @@ import scala.collection.mutable.ArrayBuffer
  * Created by xylr on 15-6-7.
  * 训练数据集
  */
-class TrainDataSet {
+class TrainDataSet extends java.io.Serializable{
   /**
    * 属性
    * */
